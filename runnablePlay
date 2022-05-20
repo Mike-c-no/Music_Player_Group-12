@@ -1,0 +1,36 @@
+Runnable runnablePlay = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                //code for play button
+                fileInputStream = new FileInputStream(myFile);
+                bufferedInputStream = new BufferedInputStream(fileInputStream);
+                player = new Player(bufferedInputStream);
+                totalLength = fileInputStream.available();
+                player.play();//starting music
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    Runnable runnableResume = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                //code for resume button
+                fileInputStream = new FileInputStream(myFile);
+                bufferedInputStream = new BufferedInputStream(fileInputStream);
+                player = new Player(bufferedInputStream);
+                fileInputStream.skip(totalLength - pauseLength);
+                player.play();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    public static void main(String[] args) {
+        Music mp = new Music();
+    }
+}

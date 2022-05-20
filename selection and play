@@ -1,0 +1,55 @@
+ public void actionPerformed(ActionEvent e) {
+           //Lists L=new Lists();
+        if (e.getSource().equals(select)) {
+            fileChooser = new JFileChooser();
+            fileChooser.setCurrentDirectory(new File("C:\\Users"));
+            fileChooser.setDialogTitle("Select Mp3");
+            fileChooser.setMultiSelectionEnabled(true);
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fileChooser.setFileFilter(new FileNameExtensionFilter("Mp3 files", "mp3"));
+            if (fileChooser.showOpenDialog(select) == JFileChooser.APPROVE_OPTION) {
+                myFile = fileChooser.getSelectedFile();
+                filename = fileChooser.getSelectedFile().getName();
+                filePath = fileChooser.getSelectedFile().getPath();
+                songName.setText("File Selected : " + filename);
+            }
+        }
+        if (e.getSource().equals(play)) {
+            //starting play
+            if (filename != null) {
+                playThread.start();
+                songName.setText("Now playing : " + filename);
+            } else {
+                songName.setText("No File was selected!");
+            }
+        }
+        if (e.getSource().equals(pause)) {
+            //code for pause button
+            if (player != null && filename != null) {
+                try {
+                    pauseLength = fileInputStream.available();
+                    player.close();
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
+            }
+        }
+
+        if (e.getSource().equals(resume)) {
+            //starting resume thread
+            if (filename != null) {
+                resumeThread.start();
+            } else {
+                songName.setText("No File was selected!");
+            }
+        }
+        if (e.getSource().equals(stop)) {
+            //code for stop button
+            if (player != null) {
+                player.close();
+                songName.setText("");
+            }
+
+        }
+
+    }

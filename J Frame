@@ -1,0 +1,91 @@
+import javazoom.jl.player.Player;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+public class Music implements ActionListener{
+ //Creating Frame
+JFrame frame;
+    //Creating Label for printing the selected song name
+
+JLabel song songName;
+ //Creating button for selecting a song
+JButton select;
+ //creating panels
+JPanel playerPanel,controlPanel;
+ // creating Buttons
+JButton play,pause,resume,stop,pre,next;
+}
+public  void initUI(){
+//creating songName Label to center
+songName=new JLabel("" SwingConstans.CENTER);
+//Creating button for selecting a song
+select=new JButton("select mp3");
+//creatig pPanels
+playerPanel= new Jpanel(); ///music selection Panel
+controlPanel= new Jpanel(); //control selection Panel
+
+ //creating named Buttons
+play= new JButton(play);
+pause= new JButton(pause);
+resume= new JButton(resume);
+stop= new JButton(stop);
+
+  //Setting Layout of PlayerPanel
+playerPanel.setLayout(new GridLayout(2,1));
+  //Adding components in PlayerPanel
+playerPanel.add(select);  
+playerPanel.add(songName)
+    //Setting Layout of PlayerPanel
+        playerPanel.setLayout(new GridLayout(2, 1));
+
+        //Adding components in PlayerPanel
+        playerPanel.add(select);
+        playerPanel.add(songName);
+
+        //Setting Layout of ControlPanel
+        controlPanel.setLayout(new GridLayout(1, 4));
+
+        //Addings components in ControlPanel
+        controlPanel.add(play);
+        controlPanel.add(pause);
+        controlPanel.add(resume);
+        controlPanel.add(stop);
+        
+        //Setting buttons background color
+        play.setBackground(Color.green);
+        pause.setBackground(Color.YELLOW);
+        resume.setBackground(Color.YELLOW);
+        stop.setBackground(Color.red);
+
+        //Initialing the frame
+        frame = new JFrame();
+
+        //Setting Frame's Title
+        frame.setTitle("Music Player");
+
+        //Adding panels in Frame
+        frame.add(playerPanel, BorderLayout.NORTH);
+        frame.add(controlPanel, BorderLayout.SOUTH);
+
+        //Setting Frame background color
+        frame.setBackground(Color.black);
+        frame.setSize(400, 200);
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
+
+
+public void addActionEvents() {
+        //registering action listener to buttons
+        select.addActionListener(this);
+        play.addActionListener(this);
+        pause.addActionListener(this);
+        resume.addActionListener(this);
+        stop.addActionListener(this);
+        }
+        

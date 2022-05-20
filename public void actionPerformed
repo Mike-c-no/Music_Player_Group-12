@@ -1,0 +1,20 @@
+// create constractor with action event e parameter
+public void actionPerformed(actionEvent e){
+//Lists L = new Lists();
+
+if(e.getSource().equals()select)){
+fileChooser = new Jfilechooser();
+fileChooser.setCurrentDirectory(new File("c:\\users"));
+fileChooser.setDialogTitle("select Mp3"));
+fileChooser.setMulitSelectionEnabled(true);
+fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+fileChooser.setFileFilter(new FileNameExtensionFilter("Mp3 files", "Mp3"));
+if(fileChooser.showOpenDialog(select) == JfileChooserAPPROVE_OPTION){
+
+myFile = fileChooser.getSelectedFile();
+fileName = fileChooser.getSelectedFile().getName();
+filePath = fileChooser.getSelectedFile().getPath();
+songName.setText("File Selected : "+filename);
+      }
+   }
+}

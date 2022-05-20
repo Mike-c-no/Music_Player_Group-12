@@ -1,0 +1,23 @@
+package music player;
+
+public class Lists{
+      Node head,tail;
+      
+      public List(){
+          this.head=this.tail=tail=null;
+}
+      public booleanisEmpty(){
+        return this.head==null:
+    }
+   pulic void addmusic (String file){
+          Node node = new Node(file);
+          if(!isEmpty()){
+                       this.tail.next=node;
+                       node.prev=this.tail;
+                       this.tail=node;
+     }
+           else{
+                this.head=this.tail=node;
+            }
+}
+}
